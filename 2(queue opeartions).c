@@ -40,24 +40,35 @@ int main() {
             printf("\n");
         }
     }
-
-   
-    do {
-        printf("1. Enqueue\n2. Dequeue\nEnter your choice: ");
+    
+     
+  while (1) {
+        printf("\n1. Enqueue\n2. Dequeue\n3. Exit\nEnter your choice: ");
         int choice;
         scanf("%d", &choice);
         
-        if (choice == 1) {
-            enqueue();
-        } else if (choice == 2) {
-            dequeue();
-        } else {
-            printf("Invalid choice!\n");
+        switch (choice) {
+            case 1:
+                enqueue();
+                break;
+            case 2:
+                dequeue();
+                break;
+            case 3:
+                printf("Exiting program...\n");
+                return 0;  
+            default:
+                printf("Invalid choice! Please enter 1, 2, or 3.\n");
         }
+        
 
         printf("Do you want to continue (Y/N): ");
-        scanf(" %c", &ch);
-    } while (ch == 'Y' || ch == 'y');  
+        scanf(" %c", &ch);  
 
+        if (ch == 'N' || ch == 'n') {
+            printf("Exiting program...\n");
+            break;  
+        }
+    }
     return 0;
 }
